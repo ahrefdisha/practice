@@ -1,11 +1,13 @@
 name: CI/CD Pipeline
- push:
-  name:
-   branches:
-    -main
- jobs:
-  build:ubuntu-latest
-   runs-on: ubuntu-latest
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout code
