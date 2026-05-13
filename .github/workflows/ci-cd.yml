@@ -1,0 +1,14 @@
+name: CI/CD Pipeline
+ push:
+  name:
+   branches:
+    -main
+ jobs:
+  build:ubuntu-latest
+steps:
+ -name:checkout code
+  uses:action/checkout@v4
+ -name:build Docker image
+  run:Docker build -t my-python-app
+ -name:Show Docker image
+  run:Docker images
