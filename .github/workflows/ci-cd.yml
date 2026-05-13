@@ -5,10 +5,14 @@ name: CI/CD Pipeline
     -main
  jobs:
   build:ubuntu-latest
-steps:
- -name:checkout code
-  uses:action/checkout@v4
- -name:build Docker image
-  run:Docker build -t my-python-app
- -name:Show Docker image
-  run:Docker images
+   runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Build Docker image
+        run: docker build -t my-python-app .
+
+      - name: Show Docker images
+        run: docker images
